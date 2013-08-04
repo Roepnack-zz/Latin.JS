@@ -1,4 +1,4 @@
-test
+
 var requests = {
 		words: {
 			1: 'Lorem',
@@ -16,18 +16,18 @@ var requests = {
 	}
 }
 
-jQuery(document).ready(function($) {  	
+window.onload = function() {  	
 	var all = document.getElementsByTagName("*");
 	for (var i=0; i < all.length; i++) {
-	    var data = $(all[i]).data('latin');   
-	    if(data !== undefined)
+	    var data = all[i].getAttribute('data-latin');   
+	    if(data != null)
 	    {
 	    	data = data.split('=');
 			if(data[0] == "words"){
-				$(all[i]).html(requests.words[data[1]]);
+				all[i].innerHTML = requests.words[data[1]];
 			} else if(data[0] == "sentence"){
-				$(all[i]).html(requests.sentences[data[1]]);
+				all[i].innerHTML = requests.sentences[data[1]];
 			}
 	    }		
 	}  
-});
+}
