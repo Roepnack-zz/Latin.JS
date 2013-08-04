@@ -16,6 +16,8 @@ var requests = {
 	}
 }
 
+var latinWords = ["lorem", "ipsum", "dolor", "sit", "amet"];
+
 window.onload = function() {  	
 	var all = document.getElementsByTagName("*");
 	for (var i=0; i < all.length; i++) {
@@ -24,10 +26,14 @@ window.onload = function() {
 	    {
 	    	data = data.split('=');
 			if(data[0] == "words"){
-				all[i].innerHTML = requests.words[data[1]];
+				all[i].appendChild(document.createTextNode(requests.words[data[1]]));
 			} else if(data[0] == "sentence"){
-				all[i].innerHTML = requests.sentences[data[1]];
+				all[i].appendChild(document.createTextNode(requests.sentences[data[1]]);
 			}
 	    }		
 	}  
 }
+
+
+
+
