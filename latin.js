@@ -11,6 +11,12 @@ window.onload = function() {
 	}  
 }
 
+function GetRandomWord() {
+	var max = latinWords.length - 1;
+	var num = GetRandomNumber(0, max);
+	var item = latinWords[num];
+	return item;
+}
 
 function GetRandomNumber(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
