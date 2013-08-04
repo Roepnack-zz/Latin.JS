@@ -11,6 +11,15 @@ window.onload = function() {
 	}  
 }
 
+function GetParagraph() {
+
+	var para = document.createElement("p");
+	var node = document.createTextNode(GetSentences(GetRandomNumber(4, 6)));
+	para.appendChild(node);
+
+	return para;
+}
+
 function GetSentences(numSentences) {
 	var sentences = "";
 	for(var i = 0; i < numSentences; i++) {
