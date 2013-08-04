@@ -28,7 +28,7 @@ window.onload = function() {
 			if(data[0] == "words"){
 				all[i].appendChild(document.createTextNode(requests.words[data[1]]));
 			} else if(data[0] == "sentence"){
-				all[i].appendChild(document.createTextNode(requests.sentences[data[1]]);
+				all[i].appendChild(document.createTextNode(requests.sentences[data[1]]));
 			}
 	    }		
 	}  
