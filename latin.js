@@ -11,6 +11,53 @@ window.onload = function() {
 	}  
 }
 
+function GetSentences(numSentences) {
+	var sentences = "";
+	for(var i = 0; i < numSentences; i++) {
+		sentences += GetSentence(GetRandomNumber(10, 30));
+		if(i + 1 < numSentences) {
+			sentences += "  ";
+		}
+	}
+	return sentences;
+}
+
+function GetSentence(numWords) {
+
+	//Add first word with capital letter
+	var sentence = GetWords(1, true);
+	numWords--;
+
+	while(numWords > 0) {
+		
+		//how many words in this segment?
+		var numWordsToAdd = 0;
+		if(numWords > 10)
+			numWordsToAdd = GetRandomNumber(10, numWords);
+		else
+			numWordsToAdd = numWords;
+
+		//get words for this segment
+		words = GetWords(numWordsToAdd, false);
+		numWords -= numWordsToAdd;
+
+		//add a comma?
+		var num = GetRandomNumber(1, 10);
+		if((numWordsToAdd > 20 && num > 2) ||
+		   (numWordsToAdd > 7  && num > 7)) {
+			sentence +=	words.comma();
+		}
+		else {
+			sentence += words;	
+		}		
+	}
+
+	//add punctuation
+	sentence += ".";
+
+	return sentence;
+}
+
 function GetWords(numWords, capitalize) {
 	var word = GetRandomWord();
 	var words = word;	
