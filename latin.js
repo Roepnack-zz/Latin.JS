@@ -39,4 +39,11 @@ String.prototype.capitalize = function() {
     return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
 };
 
+String.prototype.comma = function() {
+	var sentence = this.slice(0, this.length);
+	var words = sentence.split(" ");
+	if(words.length < 7) return words.join(" ");
+	var num = GetRandomNumber(2, words.length - 3);
+	words[num] += ",";
+	return words.join(" ");
 }
