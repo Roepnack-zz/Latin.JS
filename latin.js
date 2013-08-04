@@ -18,6 +18,9 @@ var requests = {
 
 var latinWords = ["lorem", "ipsum", "dolor", "sit", "amet"];
 
+
+
+
 window.onload = function() {  	
 	var all = document.getElementsByTagName("*");
 	for (var i=0; i < all.length; i++) {
@@ -35,5 +38,6 @@ window.onload = function() {
 }
 
 
-
-
+function GetRandomNumber(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
