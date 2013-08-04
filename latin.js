@@ -33,15 +33,15 @@ window.onload = function() {
 	}  
 }
 
+//Get one paragraph in latin text
 function GetParagraph() {
-
 	var para = document.createElement("p");
 	var node = document.createTextNode(GetSentences(GetRandomNumber(4, 6)));
 	para.appendChild(node);
-
 	return para;
 }
 
+//Get a set of sentences in latin text
 function GetSentences(numSentences) {
 	var sentences = "";
 	for(var i = 0; i < numSentences; i++) {
@@ -53,6 +53,7 @@ function GetSentences(numSentences) {
 	return sentences;
 }
 
+//Get a sentence in latin text
 function GetSentence(numWords) {
 
 	//Add first word with capital letter
@@ -89,6 +90,7 @@ function GetSentence(numWords) {
 	return sentence;
 }
 
+//Get a set of words in latin text
 function GetWords(numWords, capitalize) {
 	var word = GetRandomWord();
 	var words = word;	
@@ -102,6 +104,7 @@ function GetWords(numWords, capitalize) {
 	return words;
 }
 
+//Get a random latin word from the array
 function GetRandomWord() {
 	var max = latinWords.length - 1;
 	var num = GetRandomNumber(0, max);
@@ -109,14 +112,17 @@ function GetRandomWord() {
 	return item;
 }
 
+//Get a random number between min and max
 function GetRandomNumber(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//captialize the first letter of the word in a string
 String.prototype.capitalize = function() {
     return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
 };
 
+//insert a comma into a string
 String.prototype.comma = function() {
 	var sentence = this.slice(0, this.length);
 	var words = sentence.split(" ");
