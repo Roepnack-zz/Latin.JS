@@ -1,25 +1,4 @@
-
-var requests = {
-		words: {
-			1: 'Lorem',
-			2: 'Lorem ipsum',
-			3: 'Lorem ipsum dolor',
-			4: 'Lorem ipsum dolor sit',
-			5: 'Lorem ipsum dolor sit amet.'
-		},
-		sentences: {
-			1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis volutpat velit.',
-			2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis volutpat velit. Maecenas mi mauris, mattis in nisl vitae, tristique ultrices nibh.',
-			3: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis volutpat velit. Maecenas mi mauris, mattis in nisl vitae, tristique ultrices nibh. Aliquam a erat tellus.',
-			4: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis volutpat velit. Maecenas mi mauris, mattis in nisl vitae, tristique ultrices nibh. Aliquam a erat tellus. Duis tempor quis augue et molestie.',
-			5: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis volutpat velit. Maecenas mi mauris, mattis in nisl vitae, tristique ultrices nibh. Aliquam a erat tellus. Duis tempor quis augue et molestie. Proin luctus ac purus nec sagittis.'
-	}
-}
-
-var latinWords = ["lorem", "ipsum", "dolor", "sit", "amet"];
-
-
-
+var latinWords = ["a","ac","accumsan","ad","adipiscing","aenean","aliqu","aliquam","aliquet","am","amet","ante","aptent","arcu","at","auctor","augu","augue","bero","bibendum","blandit","c","class","commodo","condimentum","congue","consectetur","consequat","conubia","convallis","cras","cubilia","cum","curabitur","curae","cursus","d","dapibus","diam","dictum","dictumst","dignissim","dis","dolor","don","donec","dui","duis","e","egesta","egestas","eget","eleifend","elementum","elit","enim","eo","erat","eros","es","est","et","etiam","eu","euismod","facilisi","facilisis","fames","faucibus","felis","fermentum","feugiat","fringilla","fusce","grav","gravida","gue","habitant","habitasse","hac","hendrerit","himenaeos","iaculis","ictum","id","imperdiet","in","inceptos","int","integer","interdum","ipsum","justo","lacinia","lacus","laoreet","lectus","leo","libero","ligula","litora","lla","lobortis","lorem","luctus","m","maecenas","magna","magnis","malesuada","massa","matt","mattis","mauris","mentum","metus","mi","molestie","mollis","montes","morbi","mus","nam","nascetur","natoque","nec","neque","netus","nibh","nim","nisi","nisl","non","nostra","ntum","nu","nulla","nullam","nunc","odio","ommodo","onec","orci","ornare","parturient","pellentesque","penatibus","per","pharetra","phasellus","placerat","platea","porta","porttitor","posu","posuere","potenti","praesent","pretium","primis","proin","pulvinar","purus","quam","quis","quisque","rem","rhoncus","ridiculus","risus","rius","rutrum","s","sagittis","sapien","scelerisque","sed","sem","semper","senectus","sent","sit","sociis","sociosqu","sodales","sollicitudin","stie","suscipit","suspendisse","t","taciti","te","teger","tellus","tempor","tempus","tincidunt","to","torquent","tortor","tristique","tur","turpis","u","ullamcorper","ultrices","ultricies","urna","ut","vamus","varius","vehicula","vel","velit","venenat","venenatis","venenatiscurabitur","vestibulum","vi","vitae","vivamus","viverra","volutpat","vulputate"];
 
 window.onload = function() {  	
 	var all = document.getElementsByTagName("*");
@@ -28,11 +7,6 @@ window.onload = function() {
 	    if(data != null)
 	    {
 	    	data = data.split('=');
-			if(data[0] == "words"){
-				all[i].appendChild(document.createTextNode(requests.words[data[1]]));
-			} else if(data[0] == "sentence"){
-				all[i].appendChild(document.createTextNode(requests.sentences[data[1]]));
-			}
 	    }		
 	}  
 }
