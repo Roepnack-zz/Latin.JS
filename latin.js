@@ -7,6 +7,28 @@ window.onload = function() {
 	    if(data != null)
 	    {
 	    	data = data.split('=');
+	    	switch(data[0]) {
+	    		case "word":
+	    			all[i].appendChild(document.createTextNode(GetWords(1)));
+	    			break;
+	    		case "words":
+	    			all[i].appendChild(document.createTextNode(GetWords(data[1])));
+	    			break;
+	    		case "sentence":
+	    			all[i].appendChild(document.createTextNode(GetSentences(1)));
+	    			break;
+	    		case "sentences":
+	    			all[i].appendChild(document.createTextNode(GetSentences(data[1])));
+	    			break;
+	    		case "paragraph":
+	    			all[i].appendChild(GetParagraph());	
+	    			break;
+	    		case "paragraphs":
+					for(var j = 0; j < data[1]; j++) {					
+						all[i].appendChild(GetParagraph());	
+					}
+	    			break;
+	    	}
 	    }		
 	}  
 }
