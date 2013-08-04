@@ -11,6 +11,19 @@ window.onload = function() {
 	}  
 }
 
+function GetWords(numWords, capitalize) {
+	var word = GetRandomWord();
+	var words = word;	
+	if(capitalize) {
+		words = word.capitalize();
+	}
+
+	for(var i = 0; i < numWords - 1; i++){
+		words += " " + GetRandomWord();
+	}
+	return words;
+}
+
 function GetRandomWord() {
 	var max = latinWords.length - 1;
 	var num = GetRandomNumber(0, max);
