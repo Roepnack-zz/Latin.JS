@@ -13,18 +13,21 @@
 		    			all[i].appendChild(document.createTextNode(GetWords(1)));
 		    			break;
 		    		case "words":
+		    		case "w":
 		    			all[i].appendChild(document.createTextNode(GetWords(data[1])));
 		    			break;
 		    		case "sentence":
 		    			all[i].appendChild(document.createTextNode(GetSentences(1)));
 		    			break;
 		    		case "sentences":
+		    		case "s":
 		    			all[i].appendChild(document.createTextNode(GetSentences(data[1])));
 		    			break;
 		    		case "paragraph":
 		    			all[i].appendChild(GetParagraph());	
 		    			break;
 		    		case "paragraphs":
+		    		case "p":
 						for(var j = 0; j < data[1]; j++) {					
 							all[i].appendChild(GetParagraph());	
 						}
