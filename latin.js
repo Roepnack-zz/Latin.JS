@@ -78,10 +78,28 @@
 			}
 		    context.fillRect(0, 0, width, height);
 		    
+		    //add text
+		    SetText(canvas, context);
+
 		    //append canvas to body
 		    var body = document.getElementsByTagName("body")[0];
 		    body.appendChild(canvas);
 		}
+	}
+
+	function SetText(canvas, context){
+	    context.shadowColor = '#555';
+	    context.shadowBlur = 3;
+	    context.shadowOffsetX = 1;
+	    context.shadowOffsetY = -1;
+	    context.font = '30pt Verdana';
+	    context.textAlign = 'center';
+	    context.fillStyle = '#36454F';
+	    context.fillText(canvas.width.toString() + 
+	    				 ' x ' + 
+	    				 canvas.height.toString(), 
+	    				 canvas.width / 2, 
+	    				 canvas.height / 2);
 	}
 
 	//Get random rgb color value
