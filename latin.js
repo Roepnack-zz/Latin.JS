@@ -14,6 +14,7 @@
 		    			break;
 		    		case "words":
 		    		case "w":
+
 		    			all[i].appendChild(document.createTextNode(GetWords(data[1])));
 		    			break;
 		    		case "sentence":
@@ -35,6 +36,54 @@
 		    	}
 		    }		
 		}  
+
+		var images = document.getElementsByTagName("img");
+		for (var i=0; i < all.length; i++) {
+       
+		    var source = all[i].getAttribute('src');     
+		    if(source == null || (source != null && source.length == 0)){
+		         //do nothing
+		    } else {
+		    	//if src is defined with data, skip the image
+		        continue;
+		    }
+		    
+		    var position = all[i].getBoundingClientRect();
+		    var width = all[i].clientWidth;
+		    var height = all[i].clientHeight;    
+		        
+		    //size and positioning
+		    var canvas = document.createElement('canvas');
+		    canvas.id = "CursorLayer" + i;
+		    canvas.width = width;
+		    canvas.height = height;
+		    canvas.style.zIndex = 10000;    
+		    canvas.style.position = "absolute";
+		    canvas.style.top = position.top + "px";
+		    canvas.style.left = position.left + "px";
+		    
+		    //create context
+		    var context = canvas.getContext('2d');
+		    
+		    //set background color
+		    var color = all[i].getAttribute('data-latin-background-color');  
+		    if(color != null && color != ""){
+		        context.fillStyle = color;
+		    }
+		    else {
+		        context.fillStyle = "rgb(" + rgb() + "," + rgb() + "," + rgb() + ")";
+		    }
+		    context.fillRect(0, 0, width, height);
+		    
+		    //append canvas to body
+		    var body = document.getElementsByTagName("body")[0];
+		    body.appendChild(canvas);
+		}
+	}
+
+	//Get random rgb color value
+	function rgb() {
+	    return Math.floor(Math.random() * 256).toString();
 	}
 
 	//Get one paragraph in latin text
