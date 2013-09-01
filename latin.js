@@ -46,45 +46,48 @@
 		    } else {
 		    	//if src is defined with data, skip the image
 		        continue;
-		    }
-		    
-		    var position = all[i].getBoundingClientRect();
-		    var width = all[i].clientWidth;
-		    var height = all[i].clientHeight;    
+		    }   
 		        
-		    //size and positioning
-		    var canvas = document.createElement('canvas');
-		    canvas.id = "CursorLayer" + i;
-		    canvas.width = width;
-		    canvas.height = height;
-		    canvas.style.zIndex = 10000;    
-		    canvas.style.position = "absolute";
-		    canvas.style.top = position.top + "px";
-		    canvas.style.left = position.left + "px";
+		    var canvas = SetSizeAndPosition(i); 
+		    var context = canvas.getContext('2d');		    
 		    
-		    //create context
-		    var context = canvas.getContext('2d');
-		    
-		    //set background color
-		    var color = all[i].getAttribute('data-latin-background-color');  
-		    if(color != null && color != "" && color == 'random') {
-				context.fillStyle = "rgb(" + rgb() + "," + rgb() + "," + rgb() + ")";
-			}
-			else if(color != null && color != ""){
-				context.fillStyle = color;
-			}
-			else {
-				context.fillStyle = '#B9CCE4';
-			}
-		    context.fillRect(0, 0, width, height);
-		    
-		    //add text
-		    SetText(canvas, context);
+		    SetBackgroundColor(all[i], context);		    
+		    SetText(all[i], canvas, context);
 
 		    //append canvas to body
 		    var body = document.getElementsByTagName("body")[0];
 		    body.appendChild(canvas);
 		}
+	}
+
+	function SetSizeAndPosition(id){
+	    var position = all[i].getBoundingClientRect();
+	    var width = all[i].clientWidth;
+	    var height = all[i].clientHeight;  
+	    
+	    var canvas = document.createElement('canvas');
+	    canvas.id = "CursorLayer" + id;
+	    canvas.width = width;
+	    canvas.height = height;
+	    canvas.style.zIndex = 10000;    
+	    canvas.style.position = "absolute";
+	    canvas.style.top = position.top + "px";
+	    canvas.style.left = position.left + "px";
+	    return canvas;
+	}
+
+	function SetBackgroundColor(image, context){
+		var color = image.getAttribute('data-latin-background-color');  
+	    if(color != null && color != "" && color == 'random') {
+			context.fillStyle = "rgb(" + rgb() + "," + rgb() + "," + rgb() + ")";
+		}
+		else if(color != null && color != ""){
+			context.fillStyle = color;
+		}
+		else {
+			context.fillStyle = '#B9CCE4';
+		}
+	    context.fillRect(0, 0, image.clientWidth, image.clientHeight);
 	}
 
 	function SetText(canvas, context){
