@@ -95,14 +95,27 @@
 	    context.shadowBlur = 3;
 	    context.shadowOffsetX = 1;
 	    context.shadowOffsetY = -1;
-	    context.font = '30pt Verdana';
+    
+        var textSize = '';
+        if(canvas.width > 300)
+            textSize = '30pt';
+        else if(canvas.width > 200)
+            textSize = '20pt';
+        else if(canvas.width > 100)
+            textSize = '15pt';
+        else 
+            textSize = '7pt';
+        
+	    context.font = textSize + ' Verdana';
 	    context.textAlign = 'center';
-	    context.fillStyle = '#36454F';
+	    context.fillStyle = '#36454F';     
+        
+    
 	    context.fillText(canvas.width.toString() + 
 	    				 ' x ' + 
 	    				 canvas.height.toString(), 
 	    				 canvas.width / 2, 
-	    				 canvas.height / 2);
+	    				 canvas.height / 2 + 15);
 	}
 
 	//Get random rgb color value
