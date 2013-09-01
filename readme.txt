@@ -1,2 +1,1 @@
-Latin.Js
-two
+A micro javascript library to generate latin text and place holder images on the fly directly in your html. 
