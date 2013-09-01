@@ -38,9 +38,9 @@
 		}  
 
 		var images = document.getElementsByTagName("img");
-		for (var i=0; i < all.length; i++) {
+		for (var i=0; i < images.length; i++) {
        
-		    var source = all[i].getAttribute('src');     
+		    var source = images[i].getAttribute('src');     
 		    if(source == null || (source != null && source.length == 0)){
 		         //do nothing
 		    } else {
@@ -48,11 +48,11 @@
 		        continue;
 		    }   
 		        
-		    var canvas = SetSizeAndPosition(i); 
+		    var canvas = SetSizeAndPosition(i, images[i]); 
 		    var context = canvas.getContext('2d');		    
 		    
-		    SetBackgroundColor(all[i], context);		    
-		    SetText(all[i], canvas, context);
+		    SetBackgroundColor(images[i], context);		    
+		    SetText(canvas, context);
 
 		    //append canvas to body
 		    var body = document.getElementsByTagName("body")[0];
@@ -60,10 +60,10 @@
 		}
 	}
 
-	function SetSizeAndPosition(id){
-	    var position = all[i].getBoundingClientRect();
-	    var width = all[i].clientWidth;
-	    var height = all[i].clientHeight;  
+	function SetSizeAndPosition(id, image){
+	    var position = image.getBoundingClientRect();
+	    var width = image.clientWidth;
+	    var height = image.clientHeight;  
 	    
 	    var canvas = document.createElement('canvas');
 	    canvas.id = "CursorLayer" + id;
