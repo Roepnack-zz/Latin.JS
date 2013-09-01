@@ -67,12 +67,15 @@
 		    
 		    //set background color
 		    var color = all[i].getAttribute('data-latin-background-color');  
-		    if(color != null && color != ""){
-		        context.fillStyle = color;
-		    }
-		    else {
-		        context.fillStyle = "rgb(" + rgb() + "," + rgb() + "," + rgb() + ")";
-		    }
+		    if(color != null && color != "" && color == 'random') {
+				context.fillStyle = "rgb(" + rgb() + "," + rgb() + "," + rgb() + ")";
+			}
+			else if(color != null && color != ""){
+				context.fillStyle = color;
+			}
+			else {
+				context.fillStyle = '#B9CCE4';
+			}
 		    context.fillRect(0, 0, width, height);
 		    
 		    //append canvas to body
